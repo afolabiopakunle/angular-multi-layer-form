@@ -1,3 +1,21 @@
 <div class="container p-3">
-  <button class="btn btn-primary">Loader</button>
+
+  <form [formGroup]='mainForm'>
+
+    <ng-container formArrayName="getLessons">
+      <ng-container *ngFor="let lessonForm of getLessons.controls;">
+        <div formGroupName="lessonForm">
+          <div class="mb-3">
+            <label for="lessonTitle" class="form-label">Lesson Title</label>
+            <input formControlName="lessonTitle" type="text" class="form-control" id="lessonTitle" aria-describedby="lessonTitle">
+          </div>
+          <div class="mb-3">
+            <label for="lessonAuthor" class="form-label">Author</label>
+            <input type="text" formControlName="lessonAuthor" class="form-control" id="author" aria-describedby="author">
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </form>
+  <button class="btn btn-primary" (click)="addLesson()">Loader</button>
 </div>
