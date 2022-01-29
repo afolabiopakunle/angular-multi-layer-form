@@ -11,22 +11,22 @@ export class AppComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.addLesson();
+    this.addLesseon()
   }
 
-  mainForm: FormGroup = this.fb.group({
-    getLessons: this.fb.array([])
+  mainForm = this.fb.group({
+    lessons: this.fb.array([])
   })
 
-  get getLessons() {
-    return (this.mainForm.controls['getLessons']) as FormArray
+  get lessons() {
+    return (this.mainForm.controls['lessons']) as FormArray;
   }
 
   addLesson() {
-    const lessonForm:FormGroup = this.fb.group({
+    const lesson = this.fb.group({
       lessonTitle: ['', Validators.required],
       lessonAuthor: ['', Validators.required]
     })
-    this.getLessons.push(lessonForm)
+    this.lessons.push(lesson)
   }
 }
