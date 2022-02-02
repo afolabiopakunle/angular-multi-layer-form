@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.addLesseon()
+    this.addLesson()
   }
 
   mainForm = this.fb.group({
